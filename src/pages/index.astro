@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Trust from '../components/Trust.astro';
+import Process from '../components/Process.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Escribanía Rodríguez – Seguridad y Respaldo Legal en Buenos Aires";
+const description = "Ofrecemos servicios notariales con más de 20 años de experiencia. Especialistas en escrituras, certificaciones de firma, poderes y sucesiones. Atención personalizada en Puerto Madero.";
+---
+
+<Layout title={title} description={description}>
+	<Navbar />
+	<main>
+		<Hero />
+		<Services />
+		<Trust />
+		<Process />
+		<About />
+		<Contact />
+	</main>
+	<Footer />
+</Layout>

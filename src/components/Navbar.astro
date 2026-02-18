@@ -1,0 +1,127 @@
+---
+---
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div id="logo-bg" class="w-10 h-10 bg-white/10 flex items-center justify-center rounded-sm group-hover:bg-gold-600 transition-colors duration-300">
+          <span class="text-white font-serif text-xl font-bold">E</span>
+        </div>
+        <div class="flex flex-col">
+          <span id="logo-title" class="text-xl font-serif font-bold tracking-tight text-white uppercase leading-none transition-colors duration-300">Escribanía</span>
+          <span id="logo-subtitle" class="text-xs tracking-[0.2em] text-gold-400 uppercase font-semibold leading-none mt-1 transition-colors duration-300">Profesional</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#inicio" class="nav-link text-sm font-semibold text-white hover:text-gold-400 transition-colors uppercase tracking-wider">Inicio</a>
+        <a href="#servicios" class="nav-link text-sm font-semibold text-white hover:text-gold-400 transition-colors uppercase tracking-wider">Servicios</a>
+        <a href="#nosotros" class="nav-link text-sm font-semibold text-white hover:text-gold-400 transition-colors uppercase tracking-wider">Nosotros</a>
+        <a href="#contacto" class="nav-link text-sm font-semibold text-white hover:text-gold-400 transition-colors uppercase tracking-wider">Contacto</a>
+        <a href="https://wa.me/5491130123456" target="_blank" id="cta-btn" class="bg-gold-600 text-white px-6 py-2.5 rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-gold-700 transition-all duration-300 shadow-lg shadow-gold-600/20">
+          Solicitar Turno
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-neutral-100 shadow-xl overflow-hidden transition-all duration-300">
+    <div class="flex flex-col p-6 gap-4">
+      <a href="#inicio" class="text-lg font-serif font-bold text-primary-950">Inicio</a>
+      <a href="#servicios" class="text-lg font-serif font-bold text-primary-950">Servicios</a>
+      <a href="#nosotros" class="text-lg font-serif font-bold text-primary-950">Nosotros</a>
+      <a href="#contacto" class="text-lg font-serif font-bold text-primary-950">Contacto</a>
+      <hr class="border-neutral-100 my-2" />
+      <a href="https://wa.me/5491130123456" target="_blank" class="bg-primary-950 text-white text-center py-4 rounded-sm font-bold uppercase tracking-widest">
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const logoTitle = document.getElementById('logo-title');
+  const logoSubtitle = document.getElementById('logo-subtitle');
+  const logoBg = document.getElementById('logo-bg');
+  const ctaBtn = document.getElementById('cta-btn');
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      // Scrolled - white background, dark text
+      navbar?.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-md', 'py-4');
+      navbar?.classList.remove('py-6');
+      
+      navLinks.forEach(link => {
+        link.classList.remove('text-white', 'hover:text-gold-400');
+        link.classList.add('text-primary-950', 'hover:text-gold-700');
+      });
+      
+      logoTitle?.classList.remove('text-white');
+      logoTitle?.classList.add('text-primary-950');
+      
+      logoSubtitle?.classList.remove('text-gold-400');
+      logoSubtitle?.classList.add('text-gold-700');
+      
+      logoBg?.classList.remove('bg-white/10');
+      logoBg?.classList.add('bg-primary-900');
+      
+      ctaBtn?.classList.remove('bg-gold-600', 'shadow-gold-600/20');
+      ctaBtn?.classList.add('bg-primary-950', 'shadow-primary-900/20');
+      
+      menuBtn?.classList.remove('text-white');
+      menuBtn?.classList.add('text-primary-950');
+    } else {
+      // Top - transparent background, white text
+      navbar?.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-md', 'py-4');
+      navbar?.classList.add('py-6');
+      
+      navLinks.forEach(link => {
+        link.classList.remove('text-primary-950', 'hover:text-gold-700');
+        link.classList.add('text-white', 'hover:text-gold-400');
+      });
+      
+      logoTitle?.classList.remove('text-primary-950');
+      logoTitle?.classList.add('text-white');
+      
+      logoSubtitle?.classList.remove('text-gold-700');
+      logoSubtitle?.classList.add('text-gold-400');
+      
+      logoBg?.classList.remove('bg-primary-900');
+      logoBg?.classList.add('bg-white/10');
+      
+      ctaBtn?.classList.remove('bg-primary-950', 'shadow-primary-900/20');
+      ctaBtn?.classList.add('bg-gold-600', 'shadow-gold-600/20');
+      
+      menuBtn?.classList.remove('text-primary-950');
+      menuBtn?.classList.add('text-white');
+    }
+  });
+
+  // Mobile menu toggle
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

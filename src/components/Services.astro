@@ -1,0 +1,65 @@
+---
+const services = [
+  {
+    title: "Escrituras y Compraventas",
+    description: "Asesoramiento y redacción de escrituras traslativas de dominio para inmuebles y automotores.",
+    icon: "🏠"
+  },
+  {
+    title: "Certificaciones de Firmas",
+    description: "Legalización de firmas en instrumentos privados, formularios y contratos con validez oficial.",
+    icon: "🖋️"
+  },
+  {
+    title: "Poderes y Autorizaciones",
+    description: "Confección de poderes generales, especiales, para pleitos y autorizaciones de viaje para menores.",
+    icon: "📜"
+  },
+  {
+    title: "Actas Notariales",
+    description: "Constataciones, notificaciones, sorteos y actas de presencia con plena fe pública.",
+    icon: "⚖️"
+  },
+  {
+    title: "Trámites Societarios",
+    description: "Constitución de sociedades (SA, SRL), reformas de estatutos y certificaciones para IGJ.",
+    icon: "💼"
+  },
+  {
+    title: "Sucesiones y Legales",
+    description: "Asesoramiento jurídico integral en procesos sucesorios y certificaciones hereditarias.",
+    icon: "📑"
+  }
+];
+---
+<section id="servicios" class="section-padding bg-white relative">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-gold-600 mb-4">Nuestras Soluciones</h2>
+      <p class="text-4xl md:text-5xl font-serif font-medium text-primary-950 mb-6">Servicios Notariales de Excelencia</p>
+      <div class="w-20 h-1 bg-gold-400 mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="group p-10 bg-neutral-50 border border-neutral-100 rounded-sm hover:bg-primary-950 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+          <div class="text-4xl mb-6 group-hover:scale-110 transition-transform duration-500">{service.icon}</div>
+          <h3 class="text-xl font-serif font-bold text-primary-950 group-hover:text-gold-400 mb-4 transition-colors duration-300">
+            {service.title}
+          </h3>
+          <p class="text-neutral-600 group-hover:text-neutral-300 leading-relaxed transition-colors duration-300">
+            {service.description}
+          </p>
+          <div class="mt-8 pt-6 border-t border-neutral-200 group-hover:border-white/10">
+            <a href="https://wa.me/5491130123456" class="text-sm font-bold uppercase tracking-widest text-gold-700 group-hover:text-white flex items-center gap-2">
+              Consultar ahora
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
